@@ -1,0 +1,27 @@
+{
+    "file_list": [
+        {
+            "name": "folder-search.json",
+            "creation_date": "2026-01-27T19:31:59.843978",
+            "modified_date": "2026-01-27T20:47:45.182516"
+        },
+        {
+            "name": "folder.json",
+            "creation_date": "2026-01-27T19:26:03.090984",
+            "modified_date": "2026-01-27T19:28:18.177770"
+        },
+        {
+            "name": "folder_search.py",
+            "creation_date": "2026-01-27T19:25:42.404260",
+            "modified_date": "2026-01-27T20:52:50.805736"
+        },
+        {
+            "name": "vs-code-ide-chat.md",
+            "creation_date": "2026-01-27T19:35:22.181397",
+            "modified_date": "2026-01-27T20:48:05.341826"
+        }
+    ],
+    "generated_at": "2026-01-27T20:52:52.152264",
+    "guid": "b77473ee",
+    "last_modified": "2026-01-27T20:47:45.182516"
+}
