@@ -3,7 +3,7 @@ import json
 import datetime
 import uuid
 
-def get_folder_structure(root_dir, max_depth=4):
+def get_folder_structure(root_dir, max_depth=6):
     def _walk(dir_path, depth):
         if depth > max_depth:
             return None
