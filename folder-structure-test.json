@@ -1,0 +1,154 @@
+{
+  "type": "directory",
+  "name": "source",
+  "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA",
+  "children": [
+    {
+      "type": "directory",
+      "name": "QUOTATIONS",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\QUOTATIONS",
+      "children": [
+        {
+          "type": "file",
+          "name": "Estimate Ref - 2025010600442  -METSERV AFRICA  VARIOUS COMPONENTS OF CRUSHER MACHINERY- CFR JOHANNESBURG RSA TO CPT FRONTIER MINE SITE, SAKANIA, DRC.pdf",
+          "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\QUOTATIONS\\Estimate Ref - 2025010600442  -METSERV AFRICA  VARIOUS COMPONENTS OF CRUSHER MACHINERY- CFR JOHANNESBURG RSA TO CPT FRONTIER MINE SITE, SAKANIA, DRC.pdf",
+          "extension": ".pdf",
+          "size_bytes": 530217,
+          "size_human": "517.79 KB",
+          "summary": "Here is a 1-2 sentence summary of the document:\n\nFML Freight Solutions (Pty) Ltd. estimates the cost for transporting various jaw crusher components from Johannesburg, South Africa to the CPT Frontier Mine Site in Sakania, DRC, citing a range of charges including documentation fees, transit fees, and fuel surcharges. The estimate is valid for 60 days and subject to certain exclusions and conditions, including payment on the weight or volume of the cargo, whichever is higher. | Here is a 1-2 sentence summary of the document:\n\nThis is an estimate for shipping services provided by FML Freight Solutions (Pty) Ltd, which includes estimated charges and terms for transportation, customs clearance, and other related services. The estimate is subject to change based on various factors such as fluctuations in fuel prices, currency exchange rates, and changes in regulations or tariffs.",
+          "chunk_count": 2
+        },
+        {
+          "type": "file",
+          "name": "Estimate Ref - 2025010600453  -METSERV AFRICA  1 X LT120 JAW CRUSHER - CFR JOHANNESBURG RSA TO CPT KOLWEZI, DRC.pdf",
+          "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\QUOTATIONS\\Estimate Ref - 2025010600453  -METSERV AFRICA  1 X LT120 JAW CRUSHER - CFR JOHANNESBURG RSA TO CPT KOLWEZI, DRC.pdf",
+          "extension": ".pdf",
+          "size_bytes": 466829,
+          "size_human": "455.89 KB",
+          "summary": "Here is a 1-2 sentence summary of the document:\n\nThis is an estimate from FML Freight Solutions (Pty) Ltd. to transport one Lokotrack LT120 PI lowbed trailer from Johannesburg, South Africa to Kolwezi, DRC, with estimated transit time of 17-20 days and total price excluding VAT of ZAR1,122,515. | Here is a summary of the document in 1-2 sentences:\n\nThis estimate outlines the costs and terms for shipping a consignment, including clearance/customs duty, VAT, WHT (withholding tax), and other related fees. The estimate is subject to fluctuations in rates and tariffs, and the client must confirm the details to ensure accuracy, with payment terms to be agreed upon separately.",
+          "chunk_count": 2
+        },
+        {
+          "type": "file",
+          "name": "Estimate Ref - 2025010600454  -METSERV AFRICA  1 X LT120 JAW CRUSHER - CFR JOHANNESBURG RSA TO CPT KOLWEZI, DRC.pdf",
+          "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\QUOTATIONS\\Estimate Ref - 2025010600454  -METSERV AFRICA  1 X LT120 JAW CRUSHER - CFR JOHANNESBURG RSA TO CPT KOLWEZI, DRC.pdf",
+          "extension": ".pdf",
+          "size_bytes": 466976,
+          "size_human": "456.03 KB",
+          "summary": "Here is a summary of the document in 1-2 sentences:\n\nFML Freight Solutions (Pty) Ltd. has provided an estimate to transport a LOKOTRACK LT120 PI LOT CRUSHTEC from Johannesburg, South Africa to Kolwezi, DRC, with estimated transit time of 17-20 days and total cost of USD66,786,000. The estimate is valid for 60 days and includes various charges such as documentation fees, transit fees, and customs clearance costs, subject to fuel surcharges and third-party statutory increases. | Here is a summary of the document in 1-2 sentences:\n\nThis is an estimate for shipping costs, including clearance, customs duty, VAT, and other related fees, from FML Freight Solutions (PTY) Ltd to the destination. The estimate is subject to change based on various factors, such as fluctuations in fuel prices, currency exchange rates, and changes in regulations, and may not be applicable if the actual cargo details differ from those provided.",
+          "chunk_count": 2
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "folder_structure-claude.json",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\folder_structure-claude.json",
+      "extension": ".json",
+      "size_bytes": 3492,
+      "size_human": "3.41 KB",
+      "summary": "Here is a summary of the document in 1-2 sentences:\n\nThe document provides information about a directory named \"METSERV AFRICA\" containing 6 files and 2 subdirectories, with a total size of approximately 1.48 MB. The files are mostly PDF documents related to quotations and machinery components, as well as three Python files (named inventory_script-gemini, scan_folder-claude, and scan_folder-perplexity).",
+      "chunk_count": 1
+    },
+    {
+      "type": "file",
+      "name": "folder_structure-gemini.json",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\folder_structure-gemini.json",
+      "extension": ".json",
+      "size_bytes": 3662,
+      "size_human": "3.58 KB",
+      "summary": "Here is a summary of the document in 1-2 sentences:\n\nThe document appears to be a directory listing for a folder named \"METSERV AFRICA\" containing various files and subfolders. The main folder contains several subfolders, including one called \"QUOTATIONS\", which holds multiple PDF files related to freight quotations, as well as other file types such as JSON and Python scripts.",
+      "chunk_count": 1
+    },
+    {
+      "type": "file",
+      "name": "folder_structure-perplexity.json",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\folder_structure-perplexity.json",
+      "extension": ".json",
+      "size_bytes": 3512,
+      "size_human": "3.43 KB",
+      "summary": "Here is a summary of the document in 1-2 sentences:\n\nThe document represents a directory structure with multiple files and subdirectories, including PDF estimates for various components of crusher machinery, as well as JSON and Python files related to folder structures and inventory scripts. The files are located on a Windows machine at the path \"C:\\\\Users\\\\Jason\\\\FML Freight Solutions\\\\FML Doc Share - Documents\\\\METSERV AFRICA\".",
+      "chunk_count": 1
+    },
+    {
+      "type": "file",
+      "name": "folder_structure-perplexity2.json",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\folder_structure-perplexity2.json",
+      "extension": ".json",
+      "size_bytes": 4759,
+      "size_human": "4.65 KB",
+      "summary": "Here is a summary of the document in 1-2 sentences:\n\nThe document is a directory listing that contains files and subdirectories related to METSERV AFRICA. It includes several PDF files with estimates and quotes, as well as JSON and Python files containing folder structures and inventory scripts. | Here is a summary of the document in 1-2 sentences:\n\nThe document appears to be a JSON array containing three file objects, each with details such as name, path, extension, size, and summary. The files are all Python files (indicated by the \".py\" extension) located in a directory called \"scan_folder\" within the METSERV AFRICA folder.",
+      "chunk_count": 2
+    },
+    {
+      "type": "file",
+      "name": "folder_structure-perplexity3.json",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\folder_structure-perplexity3.json",
+      "extension": ".json",
+      "size_bytes": 5158,
+      "size_human": "5.04 KB",
+      "summary": "Here is a summary of the document in 1-2 sentences:\n\nThe document appears to be a directory listing of files and subdirectories, with details such as file names, paths, sizes, and extensions. The majority of the files are PDFs containing quotations for various machinery components, while others are JSON files related to folder structures and inventory scripts. | Here is a summary of the document in 1-2 sentences:\n\nThe document appears to be a list of files, including scripts named \"inventory_script-gemini py\", \"scan_folder-claude py\", and others, with details such as file path, size, and no summary provided. The files are located on a Windows user's desktop (C:\\\\Users\\\\Jason) and appear to be related to freight solutions or inventory management.",
+      "chunk_count": 2
+    },
+    {
+      "type": "file",
+      "name": "folder_structure-perplexity4.json",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\folder_structure-perplexity4.json",
+      "extension": ".json",
+      "size_bytes": 8008,
+      "size_human": "7.82 KB",
+      "summary": "Here is a summary of the document in 1-2 sentences:\n\nThe document appears to be a directory listing for a folder called \"METSERV AFRICA\" containing subfolders and files, including three PDF files related to freight quotes. The main subfolder is \"QUOTATIONS\", which contains estimates for shipping machinery and other documents. | Here is a summary of the document in 1-2 sentences:\n\nThe document appears to be a collection of files and directories, including JSON and Python scripts, PDFs, and folder structures, all located within the path \"C:\\\\Users\\\\Jason\\\\FML Freight Solutions\\\\FML Doc Share - Documents\\\\METSERV AFRICA\". The files seem to relate to freight solutions and quotes, with some summarizing the contents of certain folders. | Here is a summary of the document in 1-2 sentences:\n\nThe document contains information about a file named \"scan_folder-perplexity2 py\" located at the path \"C:\\\\Users\\\\Jason\\\\...\". The file has a size of 7.39 KB and does not have a summary provided.",
+      "chunk_count": 3
+    },
+    {
+      "type": "file",
+      "name": "inventory_script-gemini.py",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\inventory_script-gemini.py",
+      "extension": ".py",
+      "size_bytes": 2731,
+      "size_human": "2.67 KB",
+      "summary": "Here is a summary of the document in 1-2 sentences:\n\nThis script is used to scan a folder and its contents, recursively traversing directories and files, and generates a JSON file with metadata about each item (including name, type, size, and path). The script also provides a human-readable format for large file sizes using the `get_size_format` function.",
+      "chunk_count": 1
+    },
+    {
+      "type": "file",
+      "name": "scan_final.py",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\scan_final.py",
+      "extension": ".py",
+      "size_bytes": 8283,
+      "size_human": "8.09 KB",
+      "summary": "Here is a summary of the document in 1-2 sentences:\n\nThe script is a Folder Structure Scanner designed to analyze employee onboarding documents and generate a console tree and JSON output with semantic chunking, PDF extraction, and LLM summaries. It uses various dependencies such as `ollama` for LLM summaries and `pypdf` for PDF text extraction, and provides several functions for processing file metadata and extracting text from files. | Here is a summary of the document in 1-2 sentences:\n\nThe `build_tree` function recursively builds a directory tree by traversing a given source folder and its contents. The function also generates console lines to display the tree structure and can optionally use an Ollama client to generate summaries for files.\n\nPlease note that this is just a summary, and there may be additional details or nuances in the original code that are not captured here. | Here is a summary of the document in 1-2 sentences:\n\nThe script prints the console output and creates a JSON file containing a folder tree structure. If successful, it writes the JSON file to disk and indicates that the LLM onboarding analysis is ready; if not, it reports any exceptions that occurred during writing.",
+      "chunk_count": 3
+    },
+    {
+      "type": "file",
+      "name": "scan_folder-claude.py",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\scan_folder-claude.py",
+      "extension": ".py",
+      "size_bytes": 6954,
+      "size_human": "6.79 KB",
+      "summary": "Here is a summary of the document in 2 sentences:\n\nThe script scans a directory and its subdirectories, returning a structured dictionary containing metadata about each file and directory. The script also includes functions to print the directory tree structure to the console with proper indentation, as well as generate summary statistics for the folder structure, including total files, directories, size, and file types. | Here is a summary of the document in 2 sentences:\n\nThis program scans a specified folder structure and generates statistics about the directories, files, and file types found. The program also creates a JSON output file containing the scan information, summary statistics, and directory structure data.",
+      "chunk_count": 2
+    },
+    {
+      "type": "file",
+      "name": "scan_folder-perplexity.py",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\scan_folder-perplexity.py",
+      "extension": ".py",
+      "size_bytes": 5304,
+      "size_human": "5.18 KB",
+      "summary": "Here is a 1-2 sentence summary of the document:\n\nThis Python script generates a console tree and JSON metadata for a given folder structure. It recursively traverses the directory hierarchy, collecting file and directory information, and displays it in a human-readable format on the console. | This document defines a script that builds a folder structure tree and prints it to the console, as well as saves the structure in JSON format. The script takes a source directory path as an argument, with options for specifying the maximum depth to traverse and whether to write the JSON output to the same directory.",
+      "chunk_count": 2
+    },
+    {
+      "type": "file",
+      "name": "scan_folder-perplexity2.py",
+      "path": "C:\\Users\\Jason\\FML Freight Solutions\\FML Doc Share - Documents\\METSERV AFRICA\\scan_folder-perplexity2.py",
+      "extension": ".py",
+      "size_bytes": 7853,
+      "size_human": "7.67 KB",
+      "summary": "Here is a 1-2 sentence summary of the document:\n\nThis Python script defines several functions related to text processing and metadata extraction. It can extract text from PDF files, perform semantic chunking on large documents, and provide human-readable file sizes and summaries using the OLLAMA API (if installed). | Here is a summary of the document in 1-2 sentences:\n\nThe document defines two functions: `get_file_metadata` and `build_tree`. The `build_tree` function builds a directory tree by recursively traversing a given directory, while the `get_file_metadata` function extracts metadata from files using an Ollama client. | Here is a summary of the document in 1-2 sentences:\n\nThe script reads console output lines and prints them. It then creates an enhanced JSON file with semantic chunk information and LLaMA-3 summaries, storing it at a specified path and printing a success message.",
+      "chunk_count": 3
+    }
+  ]
+}

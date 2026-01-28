@@ -1,0 +1,142 @@
+You can represent the summary as a structured JSON object with top-level sections for parties, scope, finance, and terms. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/19012317/9c8f20c7-057e-4c10-a4bf-f5b32b839122/Estimate-Ref-2025010600442-METSERV-AFRICA-VARIOUS-COMPONENTS-OF-CRUSHER-MACHINERY-CFR-JOHANNESBURG-RSA-TO-CPT-FRONTIER-MINE-SITE-SAKANIA-DRC.pdf)
+
+Here is an example JSON structure for this specific estimate:
+
+```json
+{
+  "meta": {
+    "registration_no": "2020/224518/07",
+    "vat_registration_no": "4820291617",
+    "estimate_ref": "FML-2025010600442",
+    "issue_date": "2025-06-19",
+    "valid_until": "2025-07-30",
+    "transit_time_days": "12-16",
+    "incoterms": "Incoterms 2020",
+    "currency": "USD",
+    "total_price_excl_vat": 109304.00
+  },
+  "service_provider": {
+    "name": "FML Freight Solutions (Pty) Ltd",
+    "address": "Val De Vie Estate, Polo Village, Block C1, Paarl, Western Cape, South Africa",
+    "contact_person": "Melanie Ungerer",
+    "telephone": ["+27 21 770 0777", "+27 83 442 1439"],
+    "email": "melanie@fml-freight-solutions.com"
+  },
+  "client": {
+    "name": "Metseve Africa",
+    "contact_person": "Mike"
+  },
+  "scope_of_work": {
+    "description": "Various jaw crusher components CFR Johannesburg, South Africa to CPT Frontier Mine Site, Sakania, DRC",
+    "exclusions": [
+      "Final clearance at destination",
+      "Offloading at destination"
+    ],
+    "route": {
+      "origin": "Johannesburg, South Africa",
+      "destination": "CPT Frontier Mine Site, Sakania, DRC"
+    }
+  },
+  "charges": {
+    "line_items": [
+      {
+        "description": "Documentation Fee – Customs Clearance Ex RSA",
+        "quantity": 13,
+        "unit_price_excl_vat": 118.00,
+        "total_price_excl_vat": 1534.00,
+        "currency": "USD"
+      },
+      {
+        "description": "Transit Fee",
+        "quantity": 13,
+        "unit_price_excl_vat": 150.00,
+        "total_price_excl_vat": 1950.00,
+        "currency": "USD"
+      },
+      {
+        "description": "Road Transport Super Link 34 Tons",
+        "quantity": 4,
+        "unit_price_excl_vat": 8840.00,
+        "total_price_excl_vat": 35360.00,
+        "currency": "USD"
+      },
+      {
+        "description": "Road Transport – Tri-Axle 12m",
+        "quantity": 8,
+        "unit_price_excl_vat": 7800.00,
+        "total_price_excl_vat": 62400.00,
+        "currency": "USD"
+      },
+      {
+        "description": "Road Transport – Tri-Axle 14m",
+        "quantity": 1,
+        "unit_price_excl_vat": 8060.00,
+        "total_price_excl_vat": 8060.00,
+        "currency": "USD"
+      },
+      {
+        "description": "FERI",
+        "quantity": null,
+        "unit_price_excl_vat": null,
+        "total_price_excl_vat": null,
+        "currency": "USD",
+        "pricing_status": "TO_BE_CALCULATED"
+      },
+      {
+        "description": "AD Certificate",
+        "quantity": null,
+        "unit_price_excl_vat": null,
+        "total_price_excl_vat": null,
+        "currency": "USD",
+        "pricing_status": "TO_BE_CALCULATED"
+      }
+    ],
+    "totals": {
+      "total_price_excl_vat": 109304.00,
+      "notes": [
+        "FERI and AD Certificate costs excluded from total and to be calculated separately"
+      ]
+    }
+  },
+  "inclusions": [
+    "Documentation and transit arrangements up to arrival at destination",
+    "Road transport on quoted vehicle types and quantities",
+    "Facilitation of pre-shipment inspection"
+  ],
+  "exclusions": [
+    "FERI & AD Certification costs",
+    "Labour to load at supplier premises",
+    "Cargo insurance (at owner's risk, available on request)",
+    "Government legislation-related additional costs",
+    "Customs stops, exams, permits, surveys, pre-shipment inspection fees, weighbridge, escorts, traffic fines, destination offloading costs",
+    "Standing time, storage, and demurrage charges",
+    "Clearance, customs duty, VAT, WHT, and related destination taxes",
+    "Customs penalties for non/late acquittal",
+    "Pre-shipment inspection costs (unless agreed)",
+    "Temporary import, bond fees, and customs deposits"
+  ],
+  "operational_conditions": {
+    "fuel_surcharge": "Based on diesel price at time of dispatch; rates subject to volatility",
+    "border_clearance_allowance_days": 2,
+    "offloading_allowance_days": 2,
+    "demurrage_policy": "Standing time/trailer demurrage per day from 2nd day if allowances exceeded",
+    "force_majeure": "If road is inaccessible due to rains/poor conditions, Force Majeure may be invoked; client has 24 hours to offload before detention charges",
+    "weight_volume_basis": "Charges based on max weight/volume; billed on weight or volume, whichever is higher, per Bill of Lading"
+  },
+  "documentation_requirements": [
+    "SARS importer/exporter registration for all parties",
+    "Police clearance for secondhand machinery (not applicable to in-transit cargo)",
+    "Full technical literature for items",
+    "Commercial invoice in English with Incoterm and HS code breakdown",
+    "Packing list/inventory with correct weight and cube"
+  ],
+  "payment_and_terms": {
+    "payment_terms": "To be agreed",
+    "rate_change_policy": "Rates and tariffs may be adjusted to those applicable at time of shipment and revised for statutory increases",
+    "liability_and_risk": "Goods carried at owner's risk; insurance available on written request",
+    "acceptance": "Offer subject to final written confirmation; acceptance by signature or email binds work under FML Freight Solutions (Pty) Ltd Standard Terms and Conditions of Trading"
+  }
+}
+```
+
+You can save this into a file like `FML-2025010600442.json` and ingest it into your system or database. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/19012317/9c8f20c7-057e-4c10-a4bf-f5b32b839122/Estimate-Ref-2025010600442-METSERV-AFRICA-VARIOUS-COMPONENTS-OF-CRUSHER-MACHINERY-CFR-JOHANNESBURG-RSA-TO-CPT-FRONTIER-MINE-SITE-SAKANIA-DRC.pdf)
