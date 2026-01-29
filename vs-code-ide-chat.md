@@ -558,3 +558,280 @@ similar_documents - Related files
 metadata - Size, type, timestamps
 The enhanced script leverages both llama3 (for intelligent text generation) and mxbai-embed-large (for semantic understanding) to deliver production-ready analysis!
 
+------------------------------------
+29/01/2026 13:14
+updated pack
+
+PS C:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search> cd "c:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search"; python test_output.py
+Files with extracted fields: 2
+
+Metadata:
+Generated: 2026-01-29T13:00:55.847963
+GUID: 65462308
+AI Summaries: True
+Embeddings: True
+Generative Model: llama3:latest
+Embedding Model: mxbai-embed-large:latest
+
+
+Sample extracted fields from first file:
+{
+  "pricing": {
+    "value": "Th is includes all matters  where I was charged immaterial whether I was  found guilty or not",
+    "confidence": 0.85
+  },
+  "parties": {
+    "value": "(volle name en ID nommer of paspoort nommer / full names and ID number or passport  number)    Gee hiermee toestemming dat Brooke International  CC \u00e2\u20ac\u02dcn",
+    "confidence": 0.85
+  },
+  "dates": {
+    "value": "-----------------------------------------------------------------                 
+     -----------------------------------------  Naam/name         Da",
+    "confidence": 0.85
+  }
+}
+PS C:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search> cd "c:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search"; python query_output.py "C:\Users\Jason\OneDrive - FML Freight Solutions\VAL-DE-VIE\VAL-DE-VIE-structure.json"
+
+============================================================
+Folder Scan Summary: C:\Users\Jason\OneDrive - FML Freight Solutions\VAL-DE-VIE\VAL-DE-VIE-structure.json
+============================================================
+Generated: 2026-01-29T13:00:55.847963
+GUID: 65462308
+
+Statistics:
+  Total Files: 5
+  Files with AI Summaries: 0
+  Files with Extracted Fields: 2
+  Files with Similarity Matches: 0
+
+Models Used:
+  AI Summaries: llama3:latest
+  Embeddings: mxbai-embed-large:latest
+============================================================
+
+
+📊 EXAMPLE QUERIES:
+
+1. Files with PRICING information:
+   - ANNEXURE B-UngererJ-signed.pdf: Th is includes all matters  where I was charged immaterial whether I was  found ...
+
+2. All PARTIES mentioned in documents:
+   - ANNEXURE B-UngererJ-signed.pdf: (volle name en ID nommer of paspoort nommer / full names and ID number or passpo...
+   - HOA - CONTRACTOR-FORM - 2021-UngererJ-signed.pdf: CONTRACTORS, SUPPLIERS, PROFESSIONALS & SERVICES This form will only be accepted...
+
+3. Document SIMILARITY GROUPS:
+
+4. Search results for 'invoice':
+   Found in 0 file(s)
+
+============================================================
+
+💡 TIP: Use this script to:
+   - Search for specific documents or values
+   - Find duplicate or similar documents
+   - Extract specific fields across all documents
+   - Generate reports from the scanned data
+   - Analyze document relationships
+
+
+PS C:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search> cd "c:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search"; ls -lh
+Get-ChildItem: A parameter cannot be found that matches parameter name 'lh'.
+PS C:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search> dir "c:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search"
+
+    Directory: C:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search       
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+la---         28 Jan 2026    10:24           1561 AI-META-PROMPT.md
+la---         29 Jan 2026    13:04           6204 ENHANCED_FEATURES.md
+la---         28 Jan 2026    13:44           6166 FML-2025010600442.json
+la---         29 Jan 2026    12:56          17324 folder_search.py
+la---         27 Jan 2026    20:52            890 folder-search.json
+la---         13 Jan 2026    19:49          16021 folder-structure-test.json
+la---         27 Jan 2026    19:28             83 folder.json
+la---         29 Jan 2026    13:05           7058 IMPLEMENTATION_SUMMARY.md
+la---         29 Jan 2026    13:06           7247 query_output.py
+la---         29 Jan 2026    13:07          11254 README.md
+la---         28 Jan 2026    13:49             72 requirements.txt
+la---         29 Jan 2026    13:04            741 test_output.py
+la---         29 Jan 2026    13:04          20320 vs-code-ide-chat.md
+la---         28 Jan 2026    13:26            384 WFH.md
+
+PS C:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search> cd "c:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search"; python EXAMPLES.py
+
+
+╔══════════════════════════════════════════════════════════╗
+║               ENHANCED FOLDER SEARCH - EXAMPLES           ║
+╚══════════════════════════════════════════════════════════╝
+
+============================================================
+EXAMPLE 1: Basic Folder Scan
+============================================================
+
+This is the simplest way to use the system:
+
+    python folder_search.py
+
+When prompted:
+    1. Enter folder path: C:\Your\Documents
+    2. Generate AI summaries? y
+    3. Use embeddings? y
+
+Output: Documents-structure.json with all analysis
+
+
+============================================================
+EXAMPLE 2: Extract All Pricing Information
+============================================================
+
+from query_output import load_structure, find_files_with_field
+import json
+
+# Load the results
+data = load_structure("Documents-structure.json")
+
+# Find all files with pricing
+pricing_files = find_files_with_field(data, 'pricing')
+
+# Display results
+for file_obj in pricing_files:
+    price_info = file_obj['extracted_fields']['pricing']
+    print(f"{file_obj['name']}: {price_info['value']}")
+    print(f"  Confidence: {price_info['confidence']}")
+
+
+============================================================
+EXAMPLE 3: Find Duplicate Documents
+============================================================
+
+from query_output import load_structure, find_similar_groups
+
+# Load results
+data = load_structure("Documents-structure.json")
+
+# Find similarity groups
+similar = find_similar_groups(data)
+
+# Display groups
+for main_doc, similar_docs in similar.items():
+    if similar_docs:  # Has similar documents
+        print(f"\n{main_doc} is similar to:")
+        for sim_doc in similar_docs:
+            print(f"  - {sim_doc['name']} (similarity: {sim_doc['similarity']})")
+
+
+============================================================
+EXAMPLE 4: Search for Specific Content
+============================================================
+
+from query_output import load_structure, search_by_value
+
+# Load results
+data = load_structure("Documents-structure.json")
+
+# Search for term
+results = search_by_value(data, "FML Freight")
+
+# Display results
+print(f"Found '{term}' in {len(results)} file(s):")
+for result in results:
+    print(f"  - {result['name']}")
+
+
+============================================================
+EXAMPLE 5: Export to CSV for Excel
+============================================================
+
+from query_output import load_structure, extract_all_fields
+import csv
+
+# Load results
+data = load_structure("Documents-structure.json")
+
+# Extract all pricing
+pricing_data = extract_all_fields(data, 'pricing')
+
+# Export to CSV
+with open('pricing_report.csv', 'w', newline='') as f:
+    writer = csv.DictWriter(f, fieldnames=['file', 'value', 'confidence'])
+    writer.writeheader()
+    writer.writerows(pricing_data)
+
+print("Exported to pricing_report.csv")
+
+
+============================================================
+EXAMPLE 6: Custom Analysis Workflow
+============================================================
+
+from query_output import load_structure
+import json
+
+# Load results
+data = load_structure("Documents-structure.json")
+
+# Analyze
+total_files = 0
+files_with_summaries = 0
+files_with_pricing = 0
+
+for item in data.get('file_list', []):
+    total_files += 1
+    if 'ai_summary' in item:
+        files_with_summaries += 1
+    if 'extracted_fields' in item and 'pricing' in item['extracted_fields']:
+        files_with_pricing += 1
+
+# Report
+print(f"Total files analyzed: {total_files}")
+print(f"Files with summaries: {files_with_summaries}")
+print(f"Files with pricing: {files_with_pricing}")
+
+
+============================================================
+EXAMPLE 7: Save to Database
+============================================================
+
+from query_output import load_structure
+import sqlite3
+
+# Load results
+data = load_structure("Documents-structure.json")
+
+# Create database
+conn = sqlite3.connect('documents.db')
+cursor = conn.cursor()
+
+# Create table
+cursor.execute('''
+    CREATE TABLE documents (
+        id INTEGER PRIMARY KEY,
+        filename TEXT,
+        document_type TEXT,
+        pricing TEXT,
+        parties TEXT,
+        dates TEXT
+    )
+''')
+
+# Insert data
+for file_obj in data.get('file_list', []):
+    fields = file_obj.get('extracted_fields', {})
+    pricing = fields.get('pricing', {}).get('value', '')
+    parties = fields.get('parties', {}).get('value', '')
+    dates = fields.get('dates', {}).get('value', '')
+
+    cursor.execute('''
+        INSERT INTO documents (filename, document_type, pricing, parties, dates)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (file_obj['name'], file_obj['extension'], pricing, parties, dates))
+
+conn.commit()
+conn.close()
+print("Data saved to documents.db")
+
+
+============================================================
+For more information, see README.md or ENHANCED_FEATURES.md
+============================================================
+PS C:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search> 
