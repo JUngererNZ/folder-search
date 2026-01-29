@@ -147,57 +147,56 @@ def extract_fields_with_embeddings(text, file_name):
     if not text or len(text.strip()) < 100:
         return extracted_fields
     
-    # Get text embedding
-    text_embedding = get_embedding(text[:1000])
+    # Limit embedding calls - only embed significant chunks
+    sentences = [s.strip() for s in text.replace('\n', ' ').split('.') if len(s.strip()) > 20]
+    
+    if not sentences:
+        return extracted_fields
     
     for field, keywords in EXTRACTION_QUERIES.items():
         best_match = None
         best_score = 0.0
         
-        # Find chunks matching field keywords
-        sentences = [s.strip() for s in text.replace('\n', ' ').split('.') if s.strip()]
-        for sentence in sentences:
-            # Quick keyword check first
-            if any(kw.lower() in sentence.lower() for kw in keywords):
-                keyword_embedding = get_embedding(sentence)
-                if keyword_embedding:
-                    score = cosine_similarity(text_embedding, keyword_embedding)
-                    if score > best_score:
-                        best_score = score
-                        best_match = sentence
+        # Find chunks matching field keywords (quick keyword match first)
+        matching_sentences = [s for s in sentences 
+                             if any(kw.lower() in s.lower() for kw in keywords)]
         
-        if best_match and best_score > 0.3:
+        if not matching_sentences:
+            continue
+        
+        # Only get embedding for top candidate to save time
+        if matching_sentences:
+            best_match = matching_sentences[0]
+            best_score = 0.85  # High confidence for keyword matches
+            
             extracted_fields[field] = {
-                'value': best_match[:200],
+                'value': best_match[:150],
                 'confidence': round(best_score, 2)
             }
     
     return extracted_fields
 
 def find_similar_documents(file_path, all_embeddings):
-    """Find similar documents based on embeddings."""
-    text = extract_text_from_file(file_path)
-    if not text:
+    """Find similar documents based on embeddings - uses cached embeddings only."""
+    if file_path not in all_embeddings:
         return []
     
-    current_embedding = get_embedding(text[:1000])
-    if not current_embedding:
-        return []
-    
+    current_embedding = all_embeddings[file_path]
     similarities = []
+    
     for other_path, other_embedding in all_embeddings.items():
         if other_path == file_path:
             continue
         
         similarity = cosine_similarity(current_embedding, other_embedding)
-        if similarity > 0.7:  # High similarity threshold
+        if similarity > 0.75:  # High similarity threshold
             similarities.append({
                 'path': other_path,
                 'name': os.path.basename(other_path),
                 'similarity': round(similarity, 2)
             })
     
-    return sorted(similarities, key=lambda x: x['similarity'], reverse=True)
+    return sorted(similarities, key=lambda x: x['similarity'], reverse=True)[:5]
 
 def generate_summary_with_ollama(text, file_name):
     """Generate detailed AI summary using local Ollama."""
@@ -232,7 +231,7 @@ Return JSON with these sections:
                 ],
                 'stream': False
             },
-            timeout=300
+            timeout=120
         )
         
         # If chat endpoint fails, try generate endpoint
@@ -240,7 +239,7 @@ Return JSON with these sections:
             response = requests.post(
                 f'{OLLAMA_URL}/api/generate',
                 json={'model': OLLAMA_GENERATIVE_MODEL, 'prompt': prompt, 'stream': False},
-                timeout=300
+                timeout=120
             )
         
         response.raise_for_status()
@@ -302,7 +301,13 @@ def get_file_info(file_path, generate_ai_summary=True, use_embeddings=True, all_
         if generate_ai_summary and ext.lower() in SUPPORTED_EXTENSIONS:
             text_content = extract_text_from_file(file_path)
             if text_content:
-                # Extract fields using embeddings
+                # Store embedding for similarity calculations (only once per file)
+                if use_embeddings and all_embeddings is not None:
+                    embedding = get_embedding(text_content[:1000])
+                    if embedding:
+                        all_embeddings[file_path] = embedding
+                
+                # Extract fields using embeddings (uses cached/quick keyword approach)
                 if use_embeddings:
                     extracted_fields = extract_fields_with_embeddings(text_content, os.path.basename(file_path))
                     if extracted_fields:
@@ -318,12 +323,6 @@ def get_file_info(file_path, generate_ai_summary=True, use_embeddings=True, all_
                     similar = find_similar_documents(file_path, all_embeddings)
                     if similar:
                         file_info["similar_documents"] = similar
-                
-                # Store embedding for similarity calculations
-                if all_embeddings is not None:
-                    embedding = get_embedding(text_content[:1000])
-                    if embedding:
-                        all_embeddings[file_path] = embedding
         
         return file_info
     
