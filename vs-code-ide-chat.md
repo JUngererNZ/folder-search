@@ -835,3 +835,24 @@ print("Data saved to documents.db")
 For more information, see README.md or ENHANCED_FEATURES.md
 ============================================================
 PS C:\Users\Jason\OneDrive - FML Freight Solutions\FML-PROJECTS\folder-search> 
+
+
+------------------------------------
+29/01/2026 17:58
+updated a timeout issue
+
+nning folder structure...
+Error generating summary with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)
+Error generating summary with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)
+Error generating summary with Ollama: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)
+Error generating embedding: 400 Client Error: Bad Request for url: http://localhost:11434/api/embed
+
+I'll add retries, request timeouts, and limit the summary/embedding input size to prevent Ollama timeouts and 400 errors. Applying a small patch now.
+
+Created 3 todos
+
+Edited
+folder_search.py+87-51
+Patch applied: the script now trims the summary prompt to key sections, limits embedding input size, and adds retries/backoff and longer timeouts for Ollama requests.
+
+Next: run your command again (python .\folder_search.py) and tell me whether the timeouts/400 errors persist or paste the new errors and I'll continue.

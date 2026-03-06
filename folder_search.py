@@ -6,6 +6,7 @@ import subprocess
 import requests
 from pathlib import Path
 import numpy as np
+import time
 
 # Document extraction libraries
 try:
@@ -79,19 +80,40 @@ def get_embedding(text):
     """Get embedding vector for text using Ollama."""
     if not text or len(text.strip()) < 10:
         return None
-    
+    # Limit input size to avoid hitting server-side request limits
     try:
-        response = requests.post(
-            f'{OLLAMA_URL}/api/embed',
-            json={'model': OLLAMA_EMBEDDING_MODEL, 'input': text},
-            timeout=60
-        )
-        response.raise_for_status()
-        result = response.json()
-        embeddings = result.get('embeddings', [])
-        if embeddings:
-            return embeddings[0]
-        return None
+        if len(text) > 2000:
+            text = text[:2000]
+
+        attempts = 3
+        backoff = 1
+        for attempt in range(attempts):
+            try:
+                response = requests.post(
+                    f'{OLLAMA_URL}/api/embed',
+                    json={'model': OLLAMA_EMBEDDING_MODEL, 'input': text},
+                    timeout=60
+                )
+                response.raise_for_status()
+                result = response.json()
+                embeddings = result.get('embeddings', [])
+                if embeddings:
+                    return embeddings[0]
+                return None
+            except requests.exceptions.HTTPError as he:
+                # If bad request, try with smaller payload then bail
+                if response.status_code == 400 and len(text) > 500:
+                    text = text[:500]
+                    time.sleep(backoff)
+                    backoff *= 2
+                    continue
+                raise
+            except Exception:
+                if attempt < attempts - 1:
+                    time.sleep(backoff)
+                    backoff *= 2
+                    continue
+                raise
     except Exception as e:
         print(f"Error generating embedding: {e}")
         return None
@@ -203,14 +225,14 @@ def generate_summary_with_ollama(text, file_name):
     if not text or len(text.strip()) < 100:
         return None
     
-    # Find key sections using embeddings for faster processing
+    # Find key sections using embeddings for faster processing and keep size small
     key_sections = find_key_sections(text, num_sections=2)
-    text_to_summarize = ' '.join(key_sections)[:2000]
-    
+    text_to_summarize = ' '.join(key_sections)[:1800]
+
     prompt = f"""Summarize this document ({file_name}) briefly and provide key details in a structured JSON format.
 
 Document content:
-{text}
+{text_to_summarize}
 
 Return JSON with these sections:
 - title: document title/name
@@ -221,42 +243,57 @@ Return JSON with these sections:
 - next_steps: any actions needed"""
 
     try:
-        # Try the chat endpoint first (more reliable)
-        response = requests.post(
-            f'{OLLAMA_URL}/api/chat',
-            json={
-                'model': OLLAMA_GENERATIVE_MODEL,
-                'messages': [
-                    {'role': 'user', 'content': prompt}
-                ],
-                'stream': False
-            },
-            timeout=120
-        )
-        
-        # If chat endpoint fails, try generate endpoint
-        if response.status_code != 200:
-            response = requests.post(
-                f'{OLLAMA_URL}/api/generate',
-                json={'model': OLLAMA_GENERATIVE_MODEL, 'prompt': prompt, 'stream': False},
-                timeout=120
-            )
-        
-        response.raise_for_status()
-        result = response.json()
-        
-        # Extract response based on endpoint
-        if 'message' in result:
-            summary_text = result['message']['content']
-        else:
-            summary_text = result.get('response', '')
-        
+        attempts = 2
+        backoff = 2
+        summary_text = None
+
+        for attempt in range(attempts):
+            try:
+                # Try the chat endpoint first
+                response = requests.post(
+                    f'{OLLAMA_URL}/api/chat',
+                    json={
+                        'model': OLLAMA_GENERATIVE_MODEL,
+                        'messages': [
+                            {'role': 'user', 'content': prompt}
+                        ],
+                        'stream': False
+                    },
+                    timeout=180
+                )
+
+                if response.status_code != 200:
+                    # fallback to generate endpoint
+                    response = requests.post(
+                        f'{OLLAMA_URL}/api/generate',
+                        json={'model': OLLAMA_GENERATIVE_MODEL, 'prompt': prompt, 'stream': False},
+                        timeout=180
+                    )
+
+                response.raise_for_status()
+                result = response.json()
+
+                if 'message' in result:
+                    summary_text = result['message']['content']
+                else:
+                    summary_text = result.get('response', '')
+
+                break
+            except requests.exceptions.RequestException:
+                if attempt < attempts - 1:
+                    time.sleep(backoff)
+                    backoff *= 2
+                    continue
+                raise
+
+        if not summary_text:
+            return None
+
         # Try to parse as JSON, otherwise return as text
         try:
             parsed = json.loads(summary_text)
             return parsed
         except json.JSONDecodeError:
-            # Try to extract JSON from markdown code blocks
             if '```json' in summary_text:
                 json_str = summary_text.split('```json')[1].split('```')[0].strip()
                 try:
@@ -269,10 +306,9 @@ Return JSON with these sections:
                     return json.loads(json_str)
                 except json.JSONDecodeError:
                     pass
-            
-            # If no JSON found, return as raw summary
+
             return {"raw_summary": summary_text}
-    
+
     except requests.exceptions.ConnectionError:
         print(f"Warning: Could not connect to Ollama at {OLLAMA_URL}. Make sure Ollama is running.")
         return None
